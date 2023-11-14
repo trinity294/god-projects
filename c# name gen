@@ -13,8 +13,8 @@ namespace ConsoleAppLab5Q1
     {
         static Random ran = new Random();
 
-        static string[] adjectives = { "Happy", "Sunny", "Clever", "Creative", "Gentle", "Vibrant" };
-        static string[] nouns = { "Explorer", "Dreamer", "Adventurer", "Creator", "Seeker", "Pioneer" };
+        static string[] adjectives = { "Hakk", "Suny", "Clver", "Creave", "Gntle", "Vbrant" };
+        static string[] nouns = { "Exprer", "reamer", "Advnturer", "Cretor", "Seer", "Pioeer" };
 
         static void Main()
         {
