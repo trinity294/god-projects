@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+
+namespace NoteTakingApp
+{
+    public class Note
+    {
+        public string Title { get; set; }
+        public string Content { get; set; }
+    }
+
+    public class Program
+    {
+        private static List<Note> notes = new List<Note>();
+
+        static void Main(string[] args)
+        {
+            bool isRunnin = true;
+
+            while (isRunnin)
+            {
+                DisplayMenu();
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        CreateNote();
+                        break;
+                    case "2":
+                        ViewNotes();
+                        break;
+                    case "3":
+                        isRunnin = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+            }
+        }
+
+        static void DisplayMenu()
+        {
+            Console.WriteLine("\nMenu:");
+            Console.WriteLine("1. Create a Note");
+            Console.WriteLine("2. View Notes");
+            Console.WriteLine("3. Exit");
+            Console.Write("Enter your choice (1-3): ");
+        }
+
+        static void CreateNote()
+        {
+            Console.Write("Enter note title: ");
+            string title = Console.ReadLine();
+
+            Console.Write("Enter note content: ");
+            string content = Console.ReadLine();
+
+            notes.Add(new Note { Title = title, Content = content });
+            Console.WriteLine("Note created successfully!");
+        }
+
+        static void ViewNotes()
+        {
+            if (notes.Count == 0)
+            {
+                Console.WriteLine("No notes available.");
+                return;
+            }
+
+            Console.WriteLine("Listing all notes:");
+            foreach (var note in notes)
+            {
+                Console.WriteLine($"Title: {note.Title}");
+                Console.WriteLine($"Content: {note.Content}\n");
+            }
+        }
+    }
+}
